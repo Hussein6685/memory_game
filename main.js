@@ -92,12 +92,17 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
 
         firstBlock.classList.add("has-match");
         secondBlock.classList.add("has-match");
+
+        document.getElementById("success").play();
+
     } else {
         triesElement.innerHTML = parseInt(triesElement.innerHTML) + 1;
         setTimeout(() => {
             firstBlock.classList.remove("is-flipped");
             secondBlock.classList.remove("is-flipped");
         }, duration);
+        document.getElementById("fail").play();
+
     }
 }
 
