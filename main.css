@@ -13,7 +13,6 @@ body {
     z-index: 2;
     background-color: rgba(3, 169, 244, 0.9);
 }
-
 .control-buttons span {
     position: absolute;
     left: 50%;
