@@ -19,9 +19,9 @@ document.querySelector(".control-buttons span").onclick = function () {
 
 let duration = 1000;
 
-let blockContainer = document.querySelector(".memory-game-blocks");
+let blocksContainer = document.querySelector(".memory-game-blocks");
 
-let blocks = Array.from(blockContainer.children);
+let blocks = Array.from(blocksContainer.children);
 
 // let orderRange = [...Array(blocks.length).keys()];
 
@@ -56,10 +56,28 @@ function flipBlock(selectedBlock) {
     // if theres two selected blocks
     if (allFlippedBlocks.length === 2) {
         console.log("two ");
+
+        // stop clicking function
+        stopClicking();
+
+        //  check matched block function
     }
+
 
 }
 
+// stop clicking function
+function stopClicking() {
+    // add class no clicking on main container
+    blocksContainer.classList.add('no-clicking');
+
+    setTimeout(() => {
+        //  remove class no clicking after the duration
+        blocksContainer.classList.remove("no-clicking");
+
+    }, duration);
+
+}
 
 // shuffle function
 function shuffle(array) {
