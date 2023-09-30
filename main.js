@@ -61,6 +61,8 @@ function flipBlock(selectedBlock) {
         stopClicking();
 
         //  check matched block function
+        checkMatchedBlocks(allFlippedBlocks[0], allFlippedBlocks[1]);
+
     }
 
 
@@ -77,6 +79,26 @@ function stopClicking() {
 
     }, duration);
 
+}
+
+//  check matched block
+function checkMatchedBlocks(firstBlock, secondBlock) {
+    let triesElement = document.querySelector(".tries span");
+
+    if (firstBlock.dataset.technology === secondBlock.dataset.technology) {
+
+        firstBlock.classList.remove("is-flipped");
+        secondBlock.classList.remove("is-flipped");
+
+        firstBlock.classList.add("has-match");
+        secondBlock.classList.add("has-match");
+    } else {
+        triesElement.innerHTML = parseInt(triesElement.innerHTML) + 1;
+        setTimeout(() => {
+            firstBlock.classList.remove("is-flipped");
+            secondBlock.classList.remove("is-flipped");
+        }, duration);
+    }
 }
 
 // shuffle function
