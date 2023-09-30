@@ -26,15 +26,49 @@ let blocks = Array.from(blockContainer.children);
 // let orderRange = [...Array(blocks.length).keys()];
 
 let orderRange = Array.from(Array(blocks.length).keys());
-console.log(orderRange[0]);
-console.log(orderRange[1]);
-console.log(orderRange[2]);
-console.log(orderRange[3]);
 
-
+// console.log(orderRange);
+shuffle(orderRange);
+// console.log(orderRange);
 
 // add order css property to game blocks
 blocks.forEach((block, index) => {
     // console.log(index)
-    block.style.order = index;
+    block.style.order = orderRange[index];
 });
+
+// shuffle function
+function shuffle(array) {
+    // setting vars
+    let current = array.length,
+        temp,
+        random;
+
+    while (current > 0) {
+        //  get random number
+        random = Math.floor(Math.random() * current);
+
+        // decrease length by one
+        current--;
+        // console.log(random);
+
+        // [1] Save Current Element in Stash
+        temp = array[current];
+
+        // [2] Current Element = Random Element
+        array[current] = array[random];
+
+        //   [3] Random Element = Get Element From Stash
+        array[random] = temp;
+    }
+
+    return array;
+}
+
+// Current Array [9, 2, 10, 4, 5, 6, 7, 3, 1, 8]
+//  new Array[1, 0]
+/*
+  [1] Save Current Element in Stash
+  [2] Current Element = Random Element
+  [3] Random Element = Get Element From Stash
+*/
