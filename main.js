@@ -23,6 +23,18 @@ let blockContainer = document.querySelector(".memory-game-blocks");
 
 let blocks = Array.from(blockContainer.children);
 
-let orderRange = [...Array(blocks.length).keys()];
+// let orderRange = [...Array(blocks.length).keys()];
 
-console.log(orderRange);
+let orderRange = Array.from(Array(blocks.length).keys());
+console.log(orderRange[0]);
+console.log(orderRange[1]);
+console.log(orderRange[2]);
+console.log(orderRange[3]);
+
+
+
+// add order css property to game blocks
+blocks.forEach((block, index) => {
+    // console.log(index)
+    block.style.order = index;
+});
